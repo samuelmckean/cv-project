@@ -15,7 +15,7 @@ class GeneralInfo extends React.Component {
     return (
       <section>
         <header>
-          {this.state.name}
+          <h1>{this.state.name}</h1>
         </header>
         TODO: fill in GeneralInfo
       </section>
