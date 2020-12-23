@@ -11,6 +11,7 @@ function Contact(props) {
       <div className="phone">
         {props.phone}
       </div>
+      <button className="edit" onClick={props.clickEdit}>Edit</button>
     </div>
   )
 }

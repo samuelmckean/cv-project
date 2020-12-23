@@ -7,13 +7,14 @@ class GeneralInfo extends React.Component {
     super();
 
     this.state = {
-      name: 'Samuel McKean',
-      email: 'samuel.mckean@gmail.com',
-      phone: '6824652070',
+      name: '',
+      email: '',
+      phone: '',
       editing: true,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clickEdit = this.clickEdit.bind(this);
   }
 
   handleSubmit(event) {
@@ -31,6 +32,10 @@ class GeneralInfo extends React.Component {
     event.preventDefault();
   }
 
+  clickEdit() {
+    this.setState({ editing: true });
+  }
+
   render() {
     return (
       <section>
@@ -44,7 +49,7 @@ class GeneralInfo extends React.Component {
               phone={this.state.phone} 
               handleSubmit={this.handleSubmit}
             />
-          : <Contact email={this.state.email} phone={this.state.phone}/>
+          : <Contact email={this.state.email} phone={this.state.phone} clickEdit={this.clickEdit} />
         }
       </section>
     )
