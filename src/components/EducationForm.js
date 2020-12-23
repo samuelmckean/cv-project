@@ -7,7 +7,7 @@ function EducationForm(props) {
     <form name="education-form" onSubmit={props.handleSubmit}>
       <FormInput fieldName="school" value={props.school} />
       <FormInput fieldName="study" value={props.study} />
-      <FormInput type="date" fieldName="graduationDate" value={props.gradDate} />
+      <FormInput type="date" fieldName="gradDate" value={props.gradDate} />
       <input type="submit" value="Submit"></input>
     </form>
   )
