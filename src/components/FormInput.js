@@ -23,7 +23,7 @@ class FormInput extends React.Component {
           {_.startCase(this.props.fieldName)}
         </label>
         <input 
-          type="text" 
+          type={this.props.type || "text"} 
           name={this.props.fieldName} 
           value={this.state.value} 
           onChange={this.handleChange}>
