@@ -1,5 +1,6 @@
 import React from 'react';
 import Contact from './Contact';
+import ContactForm from './ContactForm';
 
 class GeneralInfo extends React.Component {
   constructor() {
@@ -9,6 +10,7 @@ class GeneralInfo extends React.Component {
       name: 'Samuel McKean',
       email: 'samuel.mckean@gmail.com',
       phone: '6824652070',
+      editing: true,
     }
   }
 
@@ -18,7 +20,10 @@ class GeneralInfo extends React.Component {
         <header>
           <h1>{this.state.name}</h1>
         </header>
-        <Contact email={this.state.email} phone={this.state.phone}/>
+        {this.state.editing
+          ? <ContactForm />
+          : <Contact email={this.state.email} phone={this.state.phone}/> 
+        }
       </section>
     )
   }
