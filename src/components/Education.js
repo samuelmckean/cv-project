@@ -19,7 +19,7 @@ class Education extends React.Component {
   handleSubmit(event) {
     const school = event.target.school.value;
     const study = event.target.study.value;
-    const gradDate = new Date(event.target.study.value);
+    const gradDate = new Date(event.target.gradDate.value);
     
     this.setState({
       school,
