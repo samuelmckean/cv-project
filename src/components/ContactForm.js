@@ -1,21 +1,13 @@
 import React from 'react';
+import FormInput from './FormInput';
 
 function ContactForm(props) {
 
   return (
-    <form name="contact-form">
-      <div>
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" value={props.name}></input>
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" value={props.email}></input>
-      </div>
-      <div>
-        <label htmlFor="phone">Phone</label>
-        <input type="tel" name="phone" value={props.phone}></input>
-      </div>
+    <form name="contact-form" onSubmit={props.handleSubmit}>
+      <FormInput fieldName="name" value={props.name} />
+      <FormInput fieldName="email" value={props.email} />
+      <FormInput fieldName="phone" value={props.phone} />
       <input type="submit" value="Submit"></input>
     </form>
   )
