@@ -48,6 +48,10 @@ class Education extends React.Component {
               gradDate={this.state.gradDate}
             />
         }
+        {!this.state.editing
+          ? <button id="edit-education" onClick={() => this.setState({ editing: true })}>Edit</button>
+          : null
+        }
       </section>
     )
   }
