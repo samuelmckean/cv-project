@@ -42,7 +42,10 @@ class WorkExperience extends React.Component {
           ? <WorkExperienceForm handleSubmit={this.handleSubmit}/>
           : <WorkExperienceDisplay jobs={this.state.jobs}/>
         }
-        <button id="add-work-experience">Add</button>
+        {!this.state.editing
+          ? <button id="add-work-experience">Add</button>
+          : null
+        }
       </section>
     )
   }
