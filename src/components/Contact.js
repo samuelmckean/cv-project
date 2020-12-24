@@ -3,14 +3,13 @@ import React from 'react';
 function Contact(props) {
 
   return (
-    <div className="contact-container">
-      <h2>Contact</h2>
-      <div className="email">
+    <div className="container">
+      <p className="email">
         {props.email}
-      </div>
-      <div className="phone">
+      </p>
+      <p className="phone">
         {props.phone}
-      </div>
+      </p>
       <button className="edit" onClick={props.clickEdit}>Edit</button>
     </div>
   )

@@ -4,20 +4,20 @@ import uniqid from 'uniqid';
 function WorkExperienceDisplay(props) {
   const jobs = props.jobs.map((job) => 
     <li key={uniqid()}>
-      <div className="job-container">
+      <div className="container">
         <div className="company">
           <h3>Company</h3>
-          <div>{job.company}</div>
+          <p>{job.company}</p>
         </div>
         <div className="title">
           <h3>Title</h3>
-          <div>{job.title}</div>
+          <p>{job.title}</p>
         </div><div className="start-date">
           <h3>Start Date</h3>
-          <div>{job.startDate}</div>
+          <p>{job.startDate}</p>
         </div><div className="end-date">
           <h3>End Date</h3>
-          <div>{job.endDate}</div>
+          <p>{job.endDate}</p>
         </div>
       </div>
     </li>

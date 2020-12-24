@@ -3,18 +3,18 @@ import React from 'react';
 function EducationDisplay(props) {
 
   return (
-    <div className="education-container">
+    <div className="container">
       <div className="school">
         <h3>School</h3>
-        <div>{props.school}</div>
+        <p>{props.school}</p>
       </div>
       <div className="study">
         <h3>Study</h3>
-        <div>{props.study}</div>
+        <p>{props.study}</p>
       </div>
       <div className="grad-date">
         <h3>Graduation Date</h3>
-        <div>{props.gradDate.toDateString()}</div>
+        <p>{props.gradDate.toDateString()}</p>
       </div>
     </div>
   )
