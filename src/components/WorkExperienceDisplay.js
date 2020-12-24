@@ -1,8 +1,9 @@
 import React from 'react';
+import uniqid from 'uniqid';
 
 function WorkExperienceDisplay(props) {
   const jobs = props.jobs.map((job) => 
-    <li>
+    <li key={uniqid()}>
       <div className="job-container">
         <div className="company">
           <h3>Company</h3>
