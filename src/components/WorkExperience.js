@@ -43,7 +43,7 @@ class WorkExperience extends React.Component {
           : <WorkExperienceDisplay jobs={this.state.jobs}/>
         }
         {!this.state.editing
-          ? <button id="add-work-experience">Add</button>
+          ? <button id="add-work-experience" onClick={() => this.setState({ editing: true })}>Add</button>
           : null
         }
       </section>
