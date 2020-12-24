@@ -7,13 +7,31 @@ class WorkExperience extends React.Component {
     super();
 
     this.state = {
-      company: '',
-      title: '',
-      startDate: new Date(),
-      endDate: new Date(),
       jobs: [],
       editing: true,
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    const company = event.target.company.value;
+    const title = event.target.title.value;
+    const startDate = event.target.startDate.value;
+    const endDate = event.target.endDate.value;
+
+    this.setState((state) => {
+      return {
+        jobs: state.jobs.concat({
+          company,
+          title,
+          startDate,
+          endDate,
+        }),
+        editing: false,
+      }
+    });
+    event.preventDefault();
   }
 
   render() {
@@ -21,13 +39,8 @@ class WorkExperience extends React.Component {
       <section>
         <h2>Work Experience</h2>
         {this.state.editing
-          ? <WorkExperienceForm 
-              company={this.state.company}
-              title={this.state.title}
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-            />
-          : <WorkExperienceDisplay />
+          ? <WorkExperienceForm handleSubmit={this.handleSubmit}/>
+          : <WorkExperienceDisplay jobs={this.state.jobs}/>
         }
         <button id="add-work-experience">Add</button>
       </section>
