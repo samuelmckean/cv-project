@@ -14,6 +14,7 @@ class Education extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clickEdit = this.clickEdit.bind(this);
   }
 
   handleSubmit(event) {
@@ -31,10 +32,16 @@ class Education extends React.Component {
     event.preventDefault();
   }
 
+  clickEdit() {
+    this.setState({ editing: true });
+  }
+
   render() {
     return (
-      <section>
-        <h2>Education</h2>
+      <section className="col-md-12">
+        <div className="row">
+          <h2 className="col-md-12">Education</h2>
+        </div>
         {this.state.editing
           ? <EducationForm 
               school={this.state.school}
@@ -47,10 +54,6 @@ class Education extends React.Component {
               study={this.state.study}
               gradDate={this.state.gradDate}
             />
-        }
-        {!this.state.editing
-          ? <button id="edit-education" onClick={() => this.setState({ editing: true })}>Edit</button>
-          : null
         }
       </section>
     )

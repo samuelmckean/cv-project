@@ -4,12 +4,22 @@ import FormInput from './FormInput';
 function EducationForm(props) {
 
   return (
-    <form name="education-form" onSubmit={props.handleSubmit}>
-      <FormInput fieldName="school" value={props.school} />
-      <FormInput fieldName="study" value={props.study} />
-      <FormInput type="date" fieldName="gradDate" value={props.gradDate} />
-      <input type="submit" value="Submit"></input>
-    </form>
+    <div className="row">
+      <form name="education-form" onSubmit={props.handleSubmit}>
+        <div className="col-md-4">
+          <FormInput fieldName="school" value={props.school} />
+        </div>
+        <div className="col-md-4">
+          <FormInput fieldName="study" value={props.study} />
+        </div>
+        <div className="col-md-4">
+          <FormInput type="date" fieldName="gradDate" value={props.gradDate} />
+        </div>
+        <div className="row">
+          <input className="col-md-1" type="submit" value="Submit"></input>
+        </div>
+      </form>
+    </div>
   )
 }
 
