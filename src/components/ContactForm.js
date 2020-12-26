@@ -15,7 +15,7 @@ function ContactForm(props) {
         <div className="col-md-4">
           <FormInput fieldName="phone" value={props.phone} />
         </div>
-      <input type="submit" value="Submit"></input>
+      <input type="submit" value="Submit" className="btn btn-primary"></input>
       </form>
     </div>
   )
