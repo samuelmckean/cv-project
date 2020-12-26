@@ -39,9 +39,7 @@ class Education extends React.Component {
   render() {
     return (
       <section className="col-md-12">
-        <div className="row">
-          <h2 className="col-md-12">Education</h2>
-        </div>
+        <h2 className="row">Education</h2>
         {this.state.editing
           ? <EducationForm 
               school={this.state.school}
