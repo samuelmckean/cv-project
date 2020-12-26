@@ -15,9 +15,7 @@ function EducationForm(props) {
         <div className="col-md-4">
           <FormInput type="date" fieldName="gradDate" value={props.gradDate} />
         </div>
-        <div className="row">
-          <input className="col-md-1" type="submit" value="Submit"></input>
-        </div>
+        <input type="submit" value="Submit"></input>
       </form>
     </div>
   )
