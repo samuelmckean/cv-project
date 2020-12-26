@@ -36,6 +36,7 @@ class WorkExperience extends React.Component {
   }
 
   clickEdit() {
+    // TODO: allow the user to edit the contents of the selected job
     this.setState({ editing: true });
   }
 
@@ -48,7 +49,7 @@ class WorkExperience extends React.Component {
           : <WorkExperienceDisplay jobs={this.state.jobs}/>
         }
         {!this.state.editing
-          ? <button id="add-work-experience" onClick={() => this.setState({ editing: true })}>Add</button>
+          ? <button className="btn btn-primary" onClick={() => this.setState({ editing: true })}>Add</button>
           : null
         }
       </section>
