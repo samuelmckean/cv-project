@@ -12,6 +12,7 @@ class WorkExperience extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clickEdit = this.clickEdit.bind(this);
   }
 
   handleSubmit(event) {
@@ -34,10 +35,14 @@ class WorkExperience extends React.Component {
     event.preventDefault();
   }
 
+  clickEdit() {
+    this.setState({ editing: true });
+  }
+
   render() {
     return (
-      <section>
-        <h2>Work Experience</h2>
+      <section className="col-md-12">
+        <h2 className="row">Work Experience</h2>
         {this.state.editing
           ? <WorkExperienceForm handleSubmit={this.handleSubmit}/>
           : <WorkExperienceDisplay jobs={this.state.jobs}/>
