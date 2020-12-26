@@ -1,0 +1,12 @@
+header, section {
+    border-style: none none solid none;
+    padding: 20px 0 20px 0;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding-inline-start: 0;
+}
