@@ -38,10 +38,11 @@ class GeneralInfo extends React.Component {
 
   render() {
     return (
-      <section>
-        <header>
-          <h1>{this.state.name}</h1>
+      <section className="col-md-12">
+        <header className="row">
+          <h1 className="col-md-12">{this.state.name}</h1>
         </header>
+        <h2 className="row">Contact</h2>
         {this.state.editing
           ? <ContactForm 
               name={this.state.name} 
@@ -50,7 +51,7 @@ class GeneralInfo extends React.Component {
               handleSubmit={this.handleSubmit}
             />
           : <Contact email={this.state.email} phone={this.state.phone} clickEdit={this.clickEdit} />
-        }
+      }
       </section>
     )
   }
