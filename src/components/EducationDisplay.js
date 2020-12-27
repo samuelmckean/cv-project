@@ -8,7 +8,7 @@ function EducationDisplay(props) {
         <h3 className="col-md-4">School</h3>
         <h3 className="col-md-4">Study</h3>
         <h3 className="col-md-3">Graduation Date</h3>
-        <button className="col-md-1" onClick={props.clickEdit}>Edit</button>
+        <button className="col-md-1 btn btn-primary" onClick={props.clickEdit}>Edit</button>
       </div>
       <div className="row">
         <p className="col-md-4">{props.school}</p>

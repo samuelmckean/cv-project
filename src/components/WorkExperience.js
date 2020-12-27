@@ -8,7 +8,7 @@ class WorkExperience extends React.Component {
 
     this.state = {
       jobs: [],
-      editing: true,
+      adding: true,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,8 +28,9 @@ class WorkExperience extends React.Component {
           title,
           startDate,
           endDate,
+          editing: false
         }),
-        editing: false,
+        adding: false,
       }
     });
     event.preventDefault();
@@ -44,12 +45,12 @@ class WorkExperience extends React.Component {
     return (
       <section className="col-md-12">
         <h2 className="row">Work Experience</h2>
-        {this.state.editing
+        {this.state.adding
           ? <WorkExperienceForm handleSubmit={this.handleSubmit}/>
           : <WorkExperienceDisplay jobs={this.state.jobs}/>
         }
-        {!this.state.editing
-          ? <button className="btn btn-primary" onClick={() => this.setState({ editing: true })}>Add</button>
+        {!this.state.adding
+          ? <button className="col-md-1 btn btn-primary" onClick={() => this.setState({ editing: true })}>Add</button>
           : null
         }
       </section>
