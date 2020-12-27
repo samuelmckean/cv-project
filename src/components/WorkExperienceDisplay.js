@@ -1,24 +1,38 @@
 import React from 'react';
-import uniqid from 'uniqid';
+import JobEdit from './JobEdit';
 
 function WorkExperienceDisplay(props) {
-  const jobs = props.jobs.map((job) => 
-    <li key={uniqid()}>
-      <div className="row">
+  const jobs = props.jobs.map((job) => {
+    if (job.editing) {
+      return (
+        <li key={job.id}>
+          <JobEdit 
+            company={job.company} 
+            title={job.title} 
+            startDate={job.startDate}
+            endDate={job.endDate}
+          />
+        </li>
+      )
+    }
+    return (
+      <li key={job.id}>
         <div className="row">
-          <h3 className="col-md-4">Company</h3>
-          <h3 className="col-md-4">Title</h3>
-          <h3 className="col-md-3">Dates Worked</h3>
-          <button className="col-md-1 btn btn-primary" onClick={props.clickEdit}>Edit</button>
+          <div className="row">
+            <h3 className="col-md-4">Company</h3>
+            <h3 className="col-md-4">Title</h3>
+            <h3 className="col-md-3">Dates Worked</h3>
+            <button className="col-md-1 btn btn-primary" onClick={() => props.clickEdit(job.id)}>Edit</button>
+          </div>
+          <div className="row">
+            <p className="col-md-4">{job.company}</p>
+            <p className="col-md-4">{job.title}</p>
+            <p className="col-md-4">{job.startDate + ' to ' + job.endDate}</p>
+          </div>
         </div>
-        <div className="row">
-          <p className="col-md-4">{job.company}</p>
-          <p className="col-md-4">{job.title}</p>
-          <p className="col-md-4">{job.startDate + ' to ' + job.endDate}</p>
-        </div>
-      </div>
-    </li>
-  )
+      </li>
+    )
+  });
 
   return (
     <ul>{jobs}</ul>

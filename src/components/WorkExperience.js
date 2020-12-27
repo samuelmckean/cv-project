@@ -2,6 +2,8 @@ import React from 'react';
 import WorkExperienceDisplay from './WorkExperienceDisplay';
 import WorkExperienceForm from './WorkExperienceForm';
 
+import uniqid from 'uniqid';
+
 class WorkExperience extends React.Component {
   constructor() {
     super();
@@ -28,6 +30,7 @@ class WorkExperience extends React.Component {
           title,
           startDate,
           endDate,
+          id: uniqid(),
           editing: false
         }),
         adding: false,
@@ -36,22 +39,26 @@ class WorkExperience extends React.Component {
     event.preventDefault();
   }
 
-  clickEdit() {
-    // TODO: allow the user to edit the contents of the selected job
-    this.setState({ editing: true });
+  clickEdit(id) {
+    // copy jobs from state
+    const prevJobs = [...this.state.jobs];
+    prevJobs.forEach((item, index, array) => {
+      if (item.id === id) {
+        array[index].editing = true;
+      }
+    });
+    // set jobs in state as updated array with editing true for the edit clicked
+    this.setState({ jobs: prevJobs });
   }
 
   render() {
     return (
       <section className="col-md-12">
         <h2 className="row">Work Experience</h2>
+        <WorkExperienceDisplay jobs={this.state.jobs} clickEdit={this.clickEdit} />
         {this.state.adding
           ? <WorkExperienceForm handleSubmit={this.handleSubmit}/>
-          : <WorkExperienceDisplay jobs={this.state.jobs}/>
-        }
-        {!this.state.adding
-          ? <button className="col-md-1 btn btn-primary" onClick={() => this.setState({ editing: true })}>Add</button>
-          : null
+          : <button className="col-md-1 btn btn-primary" onClick={() => this.setState({ adding: true })}>Add</button> 
         }
       </section>
     )
