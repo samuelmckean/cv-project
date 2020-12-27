@@ -51,11 +51,39 @@ class WorkExperience extends React.Component {
     this.setState({ jobs: prevJobs });
   }
 
+  editSubmit(event, id) {
+    const company = event.target.company.value;
+    const title = event.target.title.value;
+    const startDate = event.target.startDate.value;
+    const endDate = event.target.endDate.value;
+
+    this.setState((state) => {
+      const prevJobs = state.jobs;
+      prevJobs.forEach((item, index, array) => {
+        if (item.id === id) {
+          array[index] = {
+            company,
+            title,
+            startDate,
+            endDate,
+            id: id,
+          };
+        }
+      })
+      return { jobs: prevJobs };
+    });
+    event.preventDefault();
+  }
+
   render() {
     return (
       <section className="col-md-12">
         <h2 className="row">Work Experience</h2>
-        <WorkExperienceDisplay jobs={this.state.jobs} clickEdit={this.clickEdit} />
+        <WorkExperienceDisplay 
+          jobs={this.state.jobs} 
+          clickEdit={this.clickEdit} 
+          editSubmit={this.editSubmit} 
+        />
         {this.state.adding
           ? <WorkExperienceForm handleSubmit={this.handleSubmit}/>
           : <button className="col-md-1 btn btn-primary" onClick={() => this.setState({ adding: true })}>Add</button> 
