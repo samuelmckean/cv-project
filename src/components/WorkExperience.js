@@ -15,6 +15,7 @@ class WorkExperience extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clickEdit = this.clickEdit.bind(this);
+    this.editSubmit = this.editSubmit.bind(this);
   }
 
   handleSubmit(event) {
