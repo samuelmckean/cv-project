@@ -1,5 +1,6 @@
 import React from 'react';
 import JobEdit from './JobEdit';
+import Tasks from './Tasks';
 
 function WorkExperienceDisplay(props) {
   const jobs = props.jobs.map((job) => {
@@ -30,6 +31,18 @@ function WorkExperienceDisplay(props) {
             <p className="col-md-4">{job.company}</p>
             <p className="col-md-4">{job.title}</p>
             <p className="col-md-4">{job.startDate + ' to ' + job.endDate}</p>
+          </div>
+          <div className="row">
+            <Tasks tasks={[
+              {
+                value: 'a task',
+                key: 1,
+              },
+              {
+                value: '2nd task',
+                key: 2
+              }
+            ]} />
           </div>
         </div>
       </li>
