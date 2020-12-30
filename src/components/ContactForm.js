@@ -4,18 +4,22 @@ import FormInput from './FormInput';
 function ContactForm(props) {
 
   return (
-    <div className="row">
+    <div>
       <form name="contact-form" onSubmit={props.handleSubmit}>
-        <div className="col-md-4">
-          <FormInput fieldName="name" value={props.name} />
+        <div className="row">
+          <div className="col-md-4">
+            <FormInput fieldName="name" value={props.name} />
+          </div>
+          <div className="col-md-4">
+            <FormInput fieldName="email" value={props.email} />
+          </div>
+          <div className="col-md-3">
+            <FormInput fieldName="phone" value={props.phone} />
+          </div>
+          <div className="col-md-1 d-flex align-items-end justify-items-end">
+            <input type="submit" value="Submit" className="btn btn-primary"></input>
+          </div>
         </div>
-        <div className="col-md-4">
-          <FormInput fieldName="email" value={props.email} />
-        </div>
-        <div className="col-md-4">
-          <FormInput fieldName="phone" value={props.phone} />
-        </div>
-      <input type="submit" value="Submit" className="col-md-1 btn btn-primary"></input>
       </form>
     </div>
   )
