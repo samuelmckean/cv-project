@@ -19,7 +19,7 @@ function WorkExperienceDisplay(props) {
       )
     }
     return (
-      <li key={job.id}>
+      <li className="job" key={job.id}>
         <div className="row">
           <div className="row">
             <h3 className="col-md-4">Company</h3>

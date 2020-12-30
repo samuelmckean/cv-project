@@ -3,7 +3,7 @@ header, section {
     padding: 20px 0 20px 0;
 }
 
-li {
+li.job {
     list-style: none;
 }
 
