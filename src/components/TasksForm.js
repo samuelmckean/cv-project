@@ -23,6 +23,10 @@ class TaskForm extends React.Component {
           key: uniqid(),
         }]),
       }
+    },
+    () => {
+      // reset input value
+      document.getElementsByName('task')[0].value = '';
     });
     event.preventDefault();
   }
