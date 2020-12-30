@@ -10,7 +10,7 @@ function TaskForm(props) {
           <FormInput fieldName="task" value='' />
         </div>
         <div className="col-md-1 d-flex align-items-end">
-          <input type="sumbit" value="Add Task" className="btn btn-primary"></input>
+          <input type="submit" value="Add Task" className="btn btn-primary"></input>
         </div>
       </div>
     </form>
