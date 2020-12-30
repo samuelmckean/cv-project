@@ -9,8 +9,8 @@ function TaskForm(props) {
         <div className="col-md-6">
           <FormInput fieldName="task" value='' />
         </div>
-        <div className="col-md-1 d-flex align-items-end">
-          <input type="submit" value="Add Task" className="btn btn-primary"></input>
+        <div className="col-md-2 d-flex align-items-end">
+          <button className="btn btn-secondary">Add Task</button>
         </div>
       </div>
     </form>

@@ -8,10 +8,10 @@ function WorkExperienceForm(props) {
     <div>
       <form name="work-experience-form" onSubmit={props.handleSubmit}>
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-3">
             <FormInput fieldName="company" value={''} />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-3">
             <FormInput fieldName="title" value={''} />
           </div>
           <div className="col-md-2">
@@ -20,9 +20,9 @@ function WorkExperienceForm(props) {
           <div className="col-md-2">
             <FormInput type="date" fieldName="endDate" value={new Date()} />
           </div>
-        </div>
-        <div className="row">
-          <input type="submit" value="Submit" className="btn btn-primary col-md-1"></input>
+          <div className="col-md-1 d-flex align-items-end">
+            <input type="submit" value="Submit" className="btn btn-primary"></input>
+          </div>
         </div>
       </form>
       <TaskForm />
