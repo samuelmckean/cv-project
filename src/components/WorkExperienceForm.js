@@ -24,8 +24,8 @@ function WorkExperienceForm(props) {
             <input type="submit" value="Submit" className="btn btn-primary"></input>
           </div>
         </div>
+        <TaskForm />
       </form>
-      <TaskForm />
     </div>
   )
 }
