@@ -1,0 +1,40 @@
+body#body {
+    background-color: #1E1E1E;
+}
+
+header, section {
+    border-color: #85DEF2;
+}
+
+h1, h2{
+    color: #85DEF2;
+}
+
+h3, p {
+    color: #04BF9D;
+}
+
+input.form-control {
+    background-color: #2D2D2D;
+    color: white
+}
+
+.btn.btn-primary {
+    background-color: #BF7ABB;
+    color: white;
+    border-color: #BF7ABB;
+}
+
+.btn.btn-secondary {
+    background-color: #BF7969;
+    border-color: #BF7969;
+    color: white;
+}
+
+label {
+    color: #04BF9D;
+}
+
+li.task {
+    color: white;
+}

@@ -5,7 +5,6 @@ import WorkExperience from './components/WorkExperience';
 
 import './App.css';
 import './styles/dark.css';
-import ThemeChange from './components/ThemeChange';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,16 +13,6 @@ class App extends React.Component {
     this.state = {
       theme: 'normal',
     };
-
-    this.changeTheme = this.changeTheme.bind(this);
-  }
-
-  changeTheme(theme) {
-    this.setState(() => {
-      return {
-        theme,
-      }
-    });
   }
 
   render() {
@@ -37,9 +26,6 @@ class App extends React.Component {
         </div>
         <div className="row">
           <WorkExperience />
-        </div>
-        <div className="row">
-          <ThemeChange changeTheme={this.changeTheme} />
         </div>
       </div>
     );
