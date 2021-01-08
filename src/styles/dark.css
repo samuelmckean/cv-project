@@ -12,11 +12,11 @@ header, section {
     border-color: #85DEF2;
 }
 
-h1, h2{
+h1, h2, p {
     color: #85DEF2;
 }
 
-h3, p {
+h3 {
     color: #04BF9D;
 }
 
