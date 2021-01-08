@@ -18,7 +18,8 @@ class WorkExperience extends React.Component {
     this.editSubmit = this.editSubmit.bind(this);
   }
 
-  handleSubmit(event) {
+  // updates the state when the user submits a new job
+  handleSubmit(event, tasks) {
     const company = event.target.company.value;
     const title = event.target.title.value;
     const startDate = event.target.startDate.value;
@@ -31,6 +32,7 @@ class WorkExperience extends React.Component {
           title,
           startDate,
           endDate,
+          tasks,
           id: uniqid(),
           editing: false
         }),
@@ -83,7 +85,7 @@ class WorkExperience extends React.Component {
         <WorkExperienceDisplay 
           jobs={this.state.jobs} 
           clickEdit={this.clickEdit} 
-          editSubmit={this.editSubmit} 
+          editSubmit={this.editSubmit}
         />
         {this.state.adding
           ? <WorkExperienceForm handleSubmit={this.handleSubmit}/>

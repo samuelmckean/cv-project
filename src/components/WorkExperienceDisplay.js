@@ -33,16 +33,7 @@ function WorkExperienceDisplay(props) {
             <p className="col-md-4">{job.startDate + ' to ' + job.endDate}</p>
           </div>
           <div className="row">
-            <Tasks tasks={[
-              {
-                value: 'a task',
-                key: 1,
-              },
-              {
-                value: '2nd task',
-                key: 2
-              }
-            ]} />
+            <Tasks tasks={job.tasks} />
           </div>
         </div>
       </li>
