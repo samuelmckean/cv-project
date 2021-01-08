@@ -16,7 +16,12 @@ h3, p {
 
 input.form-control {
     background-color: #2D2D2D;
-    color: white
+    color: white;
+}
+
+input.form-control:focus {
+    background-color: #2D2D2D;
+    color: white;
 }
 
 .btn.btn-primary {
