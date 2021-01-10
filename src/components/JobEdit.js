@@ -13,10 +13,10 @@ function JobEdit(props) {
           <FormInput fieldName="title" value={props.title} />
         </div>
         <div className="col-md-3">
-          <FormInput fieldName="startDate" value={props.startDate} />
+          <FormInput type="date" fieldName="startDate" value={props.startDate} />
         </div>
         <div className="col-md-2">
-          <FormInput fieldName="endDate" value={props.endDate} />
+          <FormInput type="date" fieldName="endDate" value={props.endDate} />
         </div>
         <div className="col-md-1 d-flex align-items-end">
           <input type="submit" value="Submit" className="btn btn-primary"></input>
