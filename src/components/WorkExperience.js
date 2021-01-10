@@ -54,6 +54,7 @@ class WorkExperience extends React.Component {
     this.setState({ jobs: prevJobs });
   }
 
+  // called on form submit of an edited job in JobEdit component
   editSubmit(event, id) {
     const company = event.target.company.value;
     const title = event.target.title.value;
@@ -70,6 +71,7 @@ class WorkExperience extends React.Component {
             startDate,
             endDate,
             id: id,
+            tasks: item.tasks,
           };
         }
       })
