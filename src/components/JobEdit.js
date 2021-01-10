@@ -52,7 +52,7 @@ class JobEdit extends React.Component {
             <input type="submit" value="Submit" className="btn btn-primary"></input>
           </div>
         </div>
-        <TaskForm tasks={this.props.tasks} addTask={this.addTask} />
+        <TaskForm tasks={this.state.tasks} addTask={this.addTask} />
       </form>
     )
   }
