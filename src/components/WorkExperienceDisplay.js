@@ -25,7 +25,7 @@ function WorkExperienceDisplay(props) {
             <h3 className="col-md-4">Company</h3>
             <h3 className="col-md-4">Title</h3>
             <h3 className="col-md-3">Dates Worked</h3>
-            <button className="col-md-1 btn btn-primary" onClick={() => props.clickEdit(job.id)}>Edit</button>
+            <button className="col-md-1 btn btn-secondary" onClick={() => props.clickEdit(job.id)}>Edit</button>
           </div>
           <div className="row">
             <p className="col-md-4">{job.company}</p>
