@@ -55,7 +55,7 @@ class WorkExperience extends React.Component {
   }
 
   // called on form submit of an edited job in JobEdit component
-  editSubmit(event, id) {
+  editSubmit(event, id, tasks) {
     const company = event.target.company.value;
     const title = event.target.title.value;
     const startDate = event.target.startDate.value;
@@ -71,7 +71,7 @@ class WorkExperience extends React.Component {
             startDate,
             endDate,
             id: id,
-            tasks: item.tasks,
+            tasks,
           };
         }
       })

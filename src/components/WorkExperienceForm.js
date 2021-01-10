@@ -1,6 +1,6 @@
 import React from 'react';
 import FormInput from './FormInput';
-import TaskForm from './TasksForm';
+import TaskForm from './TaskForm';
 import uniqid from 'uniqid';
 
 class WorkExperienceForm extends React.Component {

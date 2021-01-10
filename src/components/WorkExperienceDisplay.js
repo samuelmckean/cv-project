@@ -12,6 +12,7 @@ function WorkExperienceDisplay(props) {
             title={job.title} 
             startDate={job.startDate}
             endDate={job.endDate}
+            tasks={job.tasks}
             id={job.id}
             editSubmit={props.editSubmit}
           />
