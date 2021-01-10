@@ -4,8 +4,8 @@ import FormInput from './FormInput';
 function JobEdit(props) {
 
   return (
-    <div className="row">
-      <form onSubmit={(e) => props.editSubmit(e, props.id)}>
+    <form onSubmit={(e) => props.editSubmit(e, props.id)}>
+      <div className="row">
         <div className="col-md-3">
           <FormInput fieldName="company" value={props.company} />
         </div>
@@ -18,11 +18,11 @@ function JobEdit(props) {
         <div className="col-md-2">
           <FormInput fieldName="endDate" value={props.endDate} />
         </div>
-        <div className="col-md-1">
-          <input type="submit" value="Submit" className="btn btn-secondary"></input>
+        <div className="col-md-1 d-flex align-items-end">
+          <input type="submit" value="Submit" className="btn btn-primary"></input>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   )
 }
 
