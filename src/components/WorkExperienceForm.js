@@ -32,6 +32,8 @@ class WorkExperienceForm extends React.Component {
     event.preventDefault();
   }
 
+  // TODO: add deleteTask function here or BETTER SOLUTION make components more reusable/composable
+
   render() {
     return (
       <div>

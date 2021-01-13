@@ -6,7 +6,7 @@ function TaskForm(props) {
 
   return (
     <div>
-      <Tasks tasks={props.tasks} />
+      <Tasks deleteButton={true} tasks={props.tasks} deleteTask={props.deleteTask}/>
       <div className="row">
         <div className="col-md-6">
           <FormInput fieldName="task" value='' />

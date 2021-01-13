@@ -12,6 +12,7 @@ class JobEdit extends React.Component {
     };
 
     this.addTask = this.addTask.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
   // adds a new task to the state when Add Task button is clicked
@@ -28,6 +29,22 @@ class JobEdit extends React.Component {
     () => {
       // reset input value
       document.getElementsByName('task')[0].value = '';
+    });
+    event.preventDefault();
+  }
+
+  // deletes a task from the state when the delete button for that task is clicked
+  deleteTask(event, id) {
+    // get current tasks from state
+    const prevTasks = this.state.tasks;
+    // iterate through tasks
+    prevTasks.forEach((item, index, array) => {
+      // when id match found, set state to array except at the current index
+      if (item.id === id) {
+        this.setState({
+          tasks: array.slice(0, index).concat(array.slice(index + 1)),
+        });
+      }
     });
     event.preventDefault();
   }
@@ -52,7 +69,7 @@ class JobEdit extends React.Component {
             <input type="submit" value="Submit" className="btn btn-primary"></input>
           </div>
         </div>
-        <TaskForm tasks={this.state.tasks} addTask={this.addTask} />
+        <TaskForm tasks={this.state.tasks} addTask={this.addTask} deleteTask={this.deleteTask}/>
       </form>
     )
   }
