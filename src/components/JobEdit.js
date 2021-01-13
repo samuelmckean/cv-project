@@ -40,7 +40,7 @@ class JobEdit extends React.Component {
     // iterate through tasks
     prevTasks.forEach((item, index, array) => {
       // when id match found, set state to array except at the current index
-      if (item.id === id) {
+      if (item.key === id) {
         this.setState({
           tasks: array.slice(0, index).concat(array.slice(index + 1)),
         });

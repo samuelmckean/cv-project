@@ -12,6 +12,7 @@ class WorkExperienceForm extends React.Component {
     }
 
     this.addTask = this.addTask.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
   // adds a new task to the state when Add Task button is clicked
@@ -32,7 +33,25 @@ class WorkExperienceForm extends React.Component {
     event.preventDefault();
   }
 
-  // TODO: add deleteTask function here or BETTER SOLUTION make components more reusable/composable
+    // deletes a task from the state when the delete button for that task is clicked
+    deleteTask(event, id) {
+      // get current tasks from state
+      const prevTasks = this.state.tasks;
+      // iterate through tasks
+      prevTasks.forEach((item, index, array) => {
+        // when id match found, set state to array except at the current index
+        if (item.key === id) {
+          this.setState({
+            tasks: array.slice(0, index).concat(array.slice(index + 1)),
+          },
+          () => {
+            // reset input value
+            document.getElementsByName('task')[0].value = '';
+          });
+        }
+      });
+      event.preventDefault();
+    }
 
   render() {
     return (
@@ -55,7 +74,11 @@ class WorkExperienceForm extends React.Component {
               <input type="submit" value="Submit" className="btn btn-primary"></input>
             </div>
           </div>
-          <TaskForm tasks={this.state.tasks} addTask={this.addTask} />
+          <TaskForm 
+            tasks={this.state.tasks} 
+            addTask={this.addTask} 
+            deleteTask={this.deleteTask}
+          />
         </form>
       </div>
     )
