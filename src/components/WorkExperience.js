@@ -91,7 +91,11 @@ class WorkExperience extends React.Component {
         />
         {this.state.adding
           ? <WorkExperienceForm handleSubmit={this.handleSubmit}/>
-          : <button className="col-md-1 btn btn-primary" onClick={() => this.setState({ adding: true })}>Add</button> 
+          : <button 
+              className="col-md-1 btn btn-primary" 
+              onClick={() => this.setState({ adding: true })}>
+              Add
+            </button> 
         }
       </section>
     )
