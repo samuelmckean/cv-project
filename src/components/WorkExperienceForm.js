@@ -7,9 +7,22 @@ class WorkExperienceForm extends React.Component {
   constructor(props) {
     super(props);
 
+    const { 
+      company,
+      title,
+      startDate,
+      endDate,
+      tasks,
+      id, } = this.props.job;
+
     this.state = {
-      tasks: [],
-    }
+      company,
+      title,
+      startDate,
+      endDate,
+      tasks,
+      id,
+    };
 
     this.addTask = this.addTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
@@ -55,32 +68,30 @@ class WorkExperienceForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form name="work-experience-form" onSubmit={(e) => this.props.handleSubmit(e, this.state.tasks)}>
-          <div className="row">
-            <div className="col-md-3">
-              <FormInput fieldName="company" value={''} />
-            </div>
-            <div className="col-md-3">
-              <FormInput fieldName="title" value={''} />
-            </div>
-            <div className="col-md-2">
-              <FormInput type="date" fieldName="startDate" value={new Date()} />
-            </div>
-            <div className="col-md-2">
-              <FormInput type="date" fieldName="endDate" value={new Date()} />
-            </div>
-            <div className="col-md-1 d-flex align-items-end">
-              <input type="submit" value="Submit" className="btn btn-primary"></input>
-            </div>
+      <form onSubmit={(e) => this.props.handleSubmit(e, this.state.tasks, this.state.id)}>
+        <div className="row">
+          <div className="col-md-3">
+            <FormInput fieldName="company" value={this.state.company} />
           </div>
-          <TaskForm 
-            tasks={this.state.tasks} 
-            addTask={this.addTask} 
-            deleteTask={this.deleteTask}
-          />
-        </form>
-      </div>
+          <div className="col-md-3">
+            <FormInput fieldName="title" value={this.state.title} />
+          </div>
+          <div className="col-md-2">
+            <FormInput type="date" fieldName="startDate" value={this.state.startDate} />
+          </div>
+          <div className="col-md-2">
+            <FormInput type="date" fieldName="endDate" value={this.state.endDate} />
+          </div>
+          <div className="col-md-1 d-flex align-items-end">
+            <input type="submit" value="Submit" className="btn btn-primary"></input>
+          </div>
+        </div>
+        <TaskForm 
+          tasks={this.state.tasks} 
+          addTask={this.addTask} 
+          deleteTask={this.deleteTask}
+        />
+      </form>
     )
   }
 }

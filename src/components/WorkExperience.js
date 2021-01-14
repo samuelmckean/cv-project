@@ -15,29 +15,45 @@ class WorkExperience extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clickEdit = this.clickEdit.bind(this);
-    this.editSubmit = this.editSubmit.bind(this);
   }
 
   // updates the state when the user submits a new job
-  handleSubmit(event, tasks) {
+  handleSubmit(event, tasks, id) {
     const company = event.target.company.value;
     const title = event.target.title.value;
     const startDate = event.target.startDate.value;
     const endDate = event.target.endDate.value;
-
-    this.setState((state) => {
-      return {
-        jobs: state.jobs.concat({
+    // get current jobs in state
+    const prevJobs = this.state.jobs;
+    // iterate thru jobs and check if job with same id already exists
+    for (let i = 0; i < prevJobs.length; i++) {
+      // if it does exist, update the existing job
+      if (id === prevJobs[i].id) {
+        prevJobs[i] = {
           company,
           title,
           startDate,
           endDate,
+          id,
           tasks,
-          id: uniqid(),
-          editing: false
-        }),
-        adding: false,
+        };
+        this.setState({
+          jobs: prevJobs,
+        });
+        return;
       }
+    }
+    // if not, append a the new job to the list
+    this.setState({
+      jobs: prevJobs.concat({
+        company,
+        title,
+        startDate,
+        endDate,
+        id,
+        tasks,
+      }),
+      adding: false,
     });
     event.preventDefault();
   }
@@ -54,32 +70,6 @@ class WorkExperience extends React.Component {
     this.setState({ jobs: prevJobs });
   }
 
-  // called on form submit of an edited job in JobEdit component
-  editSubmit(event, id, tasks) {
-    const company = event.target.company.value;
-    const title = event.target.title.value;
-    const startDate = event.target.startDate.value;
-    const endDate = event.target.endDate.value;
-
-    this.setState((state) => {
-      const prevJobs = state.jobs;
-      prevJobs.forEach((item, index, array) => {
-        if (item.id === id) {
-          array[index] = {
-            company,
-            title,
-            startDate,
-            endDate,
-            id: id,
-            tasks,
-          };
-        }
-      })
-      return { jobs: prevJobs };
-    });
-    event.preventDefault();
-  }
-
   render() {
     return (
       <section className="col-md-12">
@@ -87,10 +77,20 @@ class WorkExperience extends React.Component {
         <WorkExperienceDisplay 
           jobs={this.state.jobs} 
           clickEdit={this.clickEdit} 
-          editSubmit={this.editSubmit}
+          handleSubmit={this.handleSubmit}
         />
         {this.state.adding
-          ? <WorkExperienceForm handleSubmit={this.handleSubmit}/>
+          ? <WorkExperienceForm 
+              handleSubmit={this.handleSubmit} 
+              job={{
+                company: '',
+                title: '',
+                startDate: new Date(),
+                endDate: new Date(),
+                id: uniqid(),
+                tasks: [],
+              }}
+            />
           : <button 
               className="col-md-1 btn btn-primary" 
               onClick={() => this.setState({ adding: true })}>

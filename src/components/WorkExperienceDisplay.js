@@ -1,5 +1,5 @@
 import React from 'react';
-import JobEdit from './JobEdit';
+import WorkExperienceForm from './WorkExperienceForm';
 import Tasks from './Tasks';
 
 function WorkExperienceDisplay(props) {
@@ -7,14 +7,9 @@ function WorkExperienceDisplay(props) {
     if (job.editing) {
       return (
         <li key={job.id}>
-          <JobEdit 
-            company={job.company} 
-            title={job.title} 
-            startDate={job.startDate}
-            endDate={job.endDate}
-            tasks={job.tasks}
-            id={job.id}
-            editSubmit={props.editSubmit}
+          <WorkExperienceForm
+            job={job} 
+            handleSubmit={props.handleSubmit}
           />
         </li>
       )
